@@ -1,0 +1,96 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.Toastify__toast--error {
+    border: 2px solid #F44336;
+    border-radius: 30px;
+    background-color: #FFCDD2;
+    padding: 12px 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .Toastify__toast--error::after {
+    position: absolute;
+    color: #333;
+    font-size: 16px;
+    font-weight: 700;
+    left: 250px;
+    padding-top: 12px;
+  }
+  
+  .Toastify__toast--error::before {
+    position: absolute;
+    font-size: 20px;
+    color: #F44336;
+    left: 12px;
+    top: 6px;
+  }
+  
+
+  .Toastify__toast--success {
+    border: 2px solid #4CAF50;
+    border-radius: 30px;
+    background-color: #C8E6C9;
+    padding: 12px 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .Toastify__toast--success::before {
+    position: absolute;
+    font-size: 20px;
+    color: #4CAF50;
+    left: 12px;
+    top: 6px;
+  }
+  
+  .Toastify__toast--success::after {
+    position: absolute;
+    color: #333;
+    font-size: 16px;
+    font-weight: 700;
+    left: 250px;
+    padding-top: 12px;
+  }
+  
+
+  .Toastify__toast--warning {
+    border: 2px solid #FF9800;
+    border-radius: 30px;
+    background-color: #FFECB3;
+    padding: 12px 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .Toastify__toast--warning::before {
+    position: absolute;
+    font-size: 20px;
+    color: #FF9800;
+    left: 12px;
+    top: 6px;
+  }
+  
+  .Toastify__toast--warning::after {
+    position: absolute;
+    color: #333;
+    font-size: 16px;
+    font-weight: 700;
+    left: 250px;
+    padding-top: 12px;
+  }
+
+  .Toastify__toast-body {
+    color: #333;
+    font-size: 16px;
+    padding-left: 30px;
+    line-height: 22px;
+    font-weight: 500;
+  }
+  
+  .Toastify__toast > button > svg {
+    display: none;
+  }
+  
