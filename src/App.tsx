@@ -107,7 +107,7 @@ export function App() {
                 <h1>{weather.main.temp}°C</h1>
                 <p>
                   {weather.weather[0].description} {" "}
-                  {weatherIcons[weather.weather[0].description] || <Cloud />}
+                  {weatherIcons[weather.weather[0].description as keyof typeof weatherIcons] || <Cloud />}
                 </p>
               </div>
             ) : (
