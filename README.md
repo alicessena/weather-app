@@ -1,6 +1,6 @@
 # ☀️ Weather App com React + Typescript
 
-Este é um aplicativo simples para consultar a previsão do tempo usando **React.js** e a API do **OpenWeatherMap**. Ele permite ao usuário inserir o nome de uma cidade, estado (opcional) e país (opcional) e visualizar as condições climáticas atuais, como temperatura, descrição e ícone correspondente ao clima.
+Este é um aplicativo simples para consultar a previsão do tempo usando React.js, TypeScript e a API do OpenWeatherMap. Ele permite ao usuário inserir o nome de uma cidade, estado (opcional) e país (opcional) e visualizar as condições climáticas atuais, como temperatura, descrição e ícone correspondente ao clima.
 
 [![Teste Agora](https://i.imgur.com/NjMHH9O.png)](https://weather-app-alicessena.vercel.app/)
 
