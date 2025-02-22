@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { IWeatherType } from "./@types/WeatherType";
 import { weatherApi } from "./service/api";
-import { LoaderCircle, Search, Sun, CloudRain, CloudDrizzle, Cloud, CloudSnow, CloudLightning, Wind, CloudFog } from "lucide-react";
+import { LoaderCircle, Search, Sun, CloudRain, CloudDrizzle, Cloud, CloudSnow, CloudLightning, Wind, CloudFog, Sunset, Sunrise, Plus, Minus, Droplets, ThermometerSun} from "lucide-react";
 import * as S from "./style/style";
 import { toast } from "react-toastify";
 
@@ -17,7 +17,6 @@ const weatherIcons = {
   "névoa": <CloudFog color={"#a7aedc"} />,
   "vento": <Wind color={"#a7aedc"} />,
 };
-
 
 export function App() {
   const [weather, setWeather] = useState<IWeatherType>();
@@ -57,7 +56,6 @@ export function App() {
     getWeatherFromApi(response.data[0].lat, response.data[0].lon);
   };
 
-
   const handleSearch = () => {
     if (location.trim() === "") {
       toast.warning("Por favor, digite o nome de uma cidade!");
@@ -65,6 +63,11 @@ export function App() {
     }
     getGeoLocationByName();
   };
+
+  const formatarHorario = (timestamp: number): string => {
+  const data = new Date(timestamp * 1000);
+  return data.toLocaleTimeString("pt-BR", { timeZone: "America/Sao_Paulo" });
+};
 
   return (
     <>
@@ -100,16 +103,74 @@ export function App() {
         ) : (
           <S.Weather>
             {weather ? (
-              <div>
-                <h2>
+              <S.Result>
+
+                <S.WeatherName>
                   {weather.name}, {weather.sys.country}
-                </h2>
-                <h1>{weather.main.temp}°C</h1>
-                <p>
-                  {weather.weather[0].description} {" "}
-                  {weatherIcons[weather.weather[0].description as keyof typeof weatherIcons] || <Cloud />}
-                </p>
-              </div>
+                </S.WeatherName>
+                
+                <S.WeatherRes>
+                                    
+                  <S.WeatherDesc>
+
+                    <S.Temp>
+                      {weather.main.temp}°C
+                    </S.Temp>
+
+                    <S.Description className="Description">
+                      {weatherIcons[weather.weather[0].description as keyof typeof weatherIcons] || <Cloud />} 
+                      {weather.weather[0].description} {" "}
+                    </S.Description>
+
+                  </S.WeatherDesc>
+
+                  <S.WeatherResult>
+
+                    <S.Desc className="Temp_min_max">
+                      <S.Content>
+                        <Minus /> min: {weather.main.temp_min}°C <br />
+                      </S.Content>
+                      <S.Content>
+                        <Plus /> max: {weather.main.temp_max}°C
+                      </S.Content>
+                    </S.Desc>
+
+                    <S.Desc className="Sun_sunrice_sunset"> 
+                      <S.Content>
+                        <Sunrise color="#ffb22e" /> {formatarHorario(weather.sys.sunrise)}
+                      </S.Content>  
+                      <S.Content>
+                        <Sunset color="#2e93ff" /> {formatarHorario(weather.sys.sunset)} 
+                      </S.Content>
+                    </S.Desc>
+
+                    <S.WeatherResult_2 >
+                      <S.Desc className="Wind_speed">
+                        <S.Content>
+                        <Wind /> {weather.wind.speed}m/s
+                        </S.Content>
+                      </S.Desc>
+
+                      <S.Desc className="Humidity">
+                        <S.Content>
+                          <Droplets color="#2e93ff" />
+                          {weather.main.humidity}%
+                        </S.Content>
+                      </S.Desc>
+
+                      <S.Desc className="Feels_like">
+                        <S.Content>
+                          <ThermometerSun />
+                          {weather.main.feels_like}°C
+                        </S.Content>
+                      </S.Desc>
+                    </S.WeatherResult_2>
+
+                  </S.WeatherResult>
+
+                </S.WeatherRes>
+
+              </S.Result>
             ) : (
               ""
             )}
