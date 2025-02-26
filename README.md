@@ -16,15 +16,15 @@ Este é um aplicativo simples para consultar a previsão do tempo usando React.j
   <tr>
     <td>
         <h3> Clima com Sucesso </h3>
-        <a href=""><img src="./src/assets/succes.gif" width="200px"></a>
+        <a href=""><img src="./src/assets/succes.gif" width="230px"></a>
     </td>
       <td>
         <h3> Campo de Pesquisa Vazio </h3>
-        <a href=""><img src="./src/assets/warning.gif" width="200px"></a>
+        <a href=""><img src="./src/assets/warning.gif" width="230px"></a>
     </td>
     <td>
       <h3> Erro na Busca </h3>
-      <a href=""><img src="./src/assets/error.gif" width="200px" ></a>
+      <a href=""><img src="./src/assets/error.gif" width="230px" ></a>
     </td>
   </tr>
 </table>
